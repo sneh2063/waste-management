@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Access</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #loginBox {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+</head>
+<body background="default-image.jpg">
+<h1>Welcome to the Admin Panel</h1>
+<button onclick="showLogin()">Login</button>
+
+<div id="loginBox">
+    <h2>Admin Login</h2>
+    <form onsubmit="return validateLogin()">
+        <input type="text" id="adminId" placeholder="Enter Admin ID" required><br><br>
+        <input type="password" id="password" placeholder="Enter Password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+function showLogin() {
+    document.getElementById('loginBox').style.display = 'block';
+}
+
+function validateLogin() {
+    var adminId = document.getElementById('adminId').value;
+    var password = document.getElementById('password').value;
+
+    // Check if adminId matches a predefined value (you can replace 'admin' with your admin ID)
+    if (adminId === 'sneh' && password === 'sneh123') {
+        alert('Login successful! Redirecting to admin panel.');
+        // Redirect to admin panel
+        window.location.href = '12.php';
+        return false;
+    } else {
+        alert('Incorrect admin ID or password. Please try again.');
+        return false;
+    }
+}
+</script>
+</body>
+</html>

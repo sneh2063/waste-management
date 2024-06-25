@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+</head>
+<body>
+    <h1>Manage Products</h1>
+
+    <!-- Form to update product -->
+    <h2>Update Product</h2>
+    <form action="91.php" method="post">
+        <label for="id">Product ID:</label>
+        <input type="text" id="id" name="id" required><br>
+        <!-- Add input fields for other product details (name, type_of_waste, price, quantity, buyer_or_seller, email) -->
+        <!-- Example:
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        -->
+        <button type="submit" name="update">Update Product</button>
+    </form>
+
+    <!-- Form to search for products -->
+    <h2>Search Products</h2>
+    <form action="manage_data.php" method="post">
+        <label for="searchTerm">Search Term:</label>
+        <input type="text" id="searchTerm" name="searchTerm" required><br>
+        <button type="submit" name="search">Search</button>
+    </form>
+
+    <!-- Display search results -->
+    <?php if (isset($searchResults)): ?>
+    <h3>Search Results</h3>
+    <ul>
+        <?php foreach ($searchResults as $product): ?>
+        <li>
+            <?php echo "Name: " . $product["name"] . ", Type of Waste: " . $product["type_of_waste"] . ", Price: " . $product["price"] . ", Quantity: " . $product["quantity"] . ", Buyer or Seller: " . $product["buyer_or_seller"] . ", Email: " . $product["email"]; ?>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
+
+    <!-- Form to delete product -->
+    <h2>Delete Product</h2>
+    <form action="manage_data.php" method="post">
+        <label for="delete">Product ID:</label>
+        <input type="text" id="delete" name="delete" required><br>
+        <button type="submit">Delete Product</button>
+    </form>
+</body>
+</html>
